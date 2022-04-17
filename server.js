@@ -15,5 +15,5 @@ app.use(cors())
 app.use('/api', api);
 
 app.listen(port, function(){
-    console.log(`my fucken port is: ${port}`)
+    console.log(`port: ${port}`)
 })
