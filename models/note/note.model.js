@@ -14,7 +14,9 @@ function createNote(note, callbck) {
 }
 
 function readAllNotes(payload, callback) {
-    noteModel.find({privacyLevel: payload.privacyLevel}).populate({path:'owner',match: {gender: payload.gender}, select:'gender username -_id'}).exec(callback);
+    // noteModel.find({privacyLevel: payload.privacyLevel}).populate({path:'owner',match: {gender: payload.gender}, select:'gender username -_id'}).exec(callback);
+    noteModel.find({privacyLevel: payload.privacyLevel}).populate({path:'owner'}).exec(callback);
+
 }
 
 function readNotesByUserGender(payload, callback) {
@@ -30,5 +32,5 @@ function readNotesByUserGender(payload, callback) {
 
 function readNotesByUserId(payload, callback) {
     console.log("payload", payload)
-    noteModel.find({owner: payload.userid, privacyLevel: payload.privacyLevel}).exec(callback);
+    noteModel.find({owner: payload.userid, privacyLevel: payload.privacyLevel}).populate({path:'owner'}).exec(callback);
 }
