@@ -12,7 +12,7 @@ const dbs = require("../dbs");
 // mongoose.Promise = global.Promise;
 
 function connectDB() {
-  const prodENV = process.env.NODE_ENV === 'PROD';
+  const prodENV = process.env.NODE_ENV === 'production';
   let db = dbs.DEV
   if (prodENV) {
     db = dbs.PROD
