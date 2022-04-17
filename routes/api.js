@@ -6,17 +6,28 @@ const User = require('../models/user/user.model');
 const Note = require('../models/note/note.model');
 
 const jwt = require('jsonwebtoken');
-const db = 'mongodb://localhost:27017/notess';
+const dbs = require("../dbs");
+// const db = detectedDB.DEV
 //const db = "mongodb://testuser:testpw@ds123136.mlab.com:23136/eventsdb";
 // mongoose.Promise = global.Promise;
 
-mongoose.connect(db, function (err) {
-  if (err) {
-    console.error('Error! ' + err)
-  } else {
-    console.log('Connected to mongodb')
+function connectDB() {
+  const prodENV = process.env.NODE_ENV === 'PROD';
+  let db = dbs.DEV
+  if (prodENV) {
+    db = dbs.PROD
   }
-});
+  mongoose.connect(db, function (err) {
+    console.log("db ==================>", db)
+    if (err) {
+      console.error('Error! ' + err)
+    } else {
+      console.log('Connected to mongodb')
+    }
+  });
+}
+
+connectDB();
 
 var _owner = '';
 var _gender = '';
