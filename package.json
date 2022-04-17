@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.4",
-    "express": "^4.16.4",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.3.4"
-  }
+    "body-parser": "1.18.3",
+    "cors": "2.8.4",
+    "express": "4.16.4",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "5.3.4"
+  },
+  "//": "version: {'node':'v16.13.2','npm':'8.1.2'}"
 }
